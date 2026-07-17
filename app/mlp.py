@@ -310,4 +310,4 @@ layers = [Embedding((len(stoi),), N_EMBD), Reshape((-1, MAX_WORD_LEN * N_EMBD)),
 
 nn = Model(layers, LR)
 current_dir = os.path.dirname(__file__)
-nn.load_parameters(os.path.join(current_dir, 'NL-WordClassifierMLP.npz'))
+nn.load_parameters(os.path.join(current_dir, 'NL-WordClassifierMLP'))
