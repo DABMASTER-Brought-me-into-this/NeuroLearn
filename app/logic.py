@@ -240,7 +240,7 @@ def process_text(texts):
         words = sentences[i].split()
         if len(words) > 200:
             sentences[i] = ' '.join(words[:200])
-            sentences.append(' '.join(words[200:])
+            sentences.append(' '.join(words[200:]))
         i += 1
 
 
