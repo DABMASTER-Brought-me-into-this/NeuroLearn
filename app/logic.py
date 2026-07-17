@@ -473,6 +473,7 @@ def run_pipeline(temp_path, temp_dir):
         return words, cloze_sentences
     except Exception as e:
         print(f'ERROR -1: {e}')
+        raise e
 
 
 def create_csv_file(deck_name, temp_path, temp_dir):
