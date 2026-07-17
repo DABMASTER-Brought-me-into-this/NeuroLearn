@@ -219,8 +219,8 @@ def cloze_function(sentence):
     base *= 1/base.shape[0]
     confidence = np.sum(((ans-base)**2)/base) # Using X^2 To determine the confidence
 
-    if confidence < base.shape[0] - 5:
-        return ''
+    # if confidence < base.shape[0] - 5:
+    #     return ''
 
     sentence_repieced = ""
     for i, word in enumerate(words):
