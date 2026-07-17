@@ -214,7 +214,7 @@ def cloze_function(sentence):
     probs = 1 / (1 + np.e ** -h3)
 
     # Decode the Output
-    ans = ((probs > 0.5) + 0.0).squeeze(axis=0)
+    ans = ((probs > 0.1) + 0.0).squeeze(axis=0)
     base = np.ones_like(ans)
     base *= 1/base.shape[0]
     confidence = np.sum(((ans-base)**2)/base) # Using X^2 To determine the confidence
