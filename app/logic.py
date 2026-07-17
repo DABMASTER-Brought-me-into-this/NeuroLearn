@@ -159,6 +159,8 @@ def cloze_function(sentence):
         return ans
 
     words = sentence.split()
+    if not words:
+        return ''
 
     # Tokenize and Pad Characters
     enc_senti = list(map(tokenize_char, words))
@@ -228,7 +230,7 @@ def cloze_function(sentence):
     
     # Force pick the most confident word if the model found nothing
     if np.max(ans) == 0:
-        best_word_idx = np.argmax(probs_squeezed)
+        best_word_idx = np.argmax(probs_squeezed[:len(words])
         ans[best_word_idx] = 1.0
 
     sentence_repieced = ""
