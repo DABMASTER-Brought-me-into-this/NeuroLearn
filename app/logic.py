@@ -235,11 +235,13 @@ def process_text(texts):
     text = ' '.join(texts)
     text = text.replace('\n', ' ')
     sentences = re.split(r'(?<=[.!?])\s+(?=[A-Z])', text)
-    for i in range(len(sentences)):
+    i = 0
+    while i < len(sentences):
         words = sentences[i].split()
         if len(words) > 200:
             sentences[i] = ' '.join(words[:200])
-            sentences.append(' '.join(words[200:]))
+            sentences.append(' '.join(words[200:])
+        i += 1
 
 
     # Running it Through the Model
