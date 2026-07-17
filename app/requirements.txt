@@ -1,6 +1,0 @@
-streamlit
-rapidocr-onnxruntime
-python-pptx
-PyMuPDF
-numpy
-opencv-python-headless
