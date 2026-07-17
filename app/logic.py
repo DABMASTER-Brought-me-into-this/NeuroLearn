@@ -271,7 +271,7 @@ def io_image_prune(image):
     W1, g1, b1, W2, g2, b2, W3, g3, b3, W4, g4, b4, W5 = list(data.values())[:13] # Dont ask y I am only indexing the first 12 elements
 
     # Preprocessing the image
-    img = cv2.imread(image, cv2.IMREAD_GRAYSCALE)
+    img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     resized_img = cv2.resize(img, (START_SIZE, START_SIZE))
     xbatch = np.expand_dims(resized_img, axis=0)
 
@@ -382,6 +382,10 @@ def io_image_prune(image):
     ## Sigmoid + Loss
     safe_raw_pred = np.clip(raw_pred, -250, 250)
     probs = 1 / (1 + (np.e ** -(safe_raw_pred)))
+
+    if probs[0][0] > 0.5:
+        return 1
+    return 0
 
 def io_word_prune(word):
     # Tokenize the word
