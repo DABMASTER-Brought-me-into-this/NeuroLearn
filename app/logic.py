@@ -222,6 +222,15 @@ def cloze_function(sentence):
     # if confidence < base.shape[0] - 5:
     #     return ''
 
+    # Decode the Output
+    probs_squeezed = probs.squeeze(axis=0)
+    ans = ((probs_squeezed > 0.5) + 0.0)
+    
+    # Force pick the most confident word if the model found nothing
+    if np.max(ans) == 0:
+        best_word_idx = np.argmax(probs_squeezed)
+        ans[best_word_idx] = 1.0
+
     sentence_repieced = ""
     for i, word in enumerate(words):
         if ans[i] == 0:
