@@ -4,7 +4,7 @@ import tempfile
 import shutil
 import logic
 
-st.title("NeuroLearn: AI Active Recall")
+st.title("NeuroLearn: Lecture to Anki")
 
 # Inputs
 uploaded_file = st.file_uploader("Upload Lecture Slides", type=["pptx", "pdf"])
@@ -12,7 +12,7 @@ deck_name = st.text_input("Desired Deck Name", value="NeuroLearn_Deck")
 
 # Execution
 if uploaded_file and st.button("Generate Deck"):
-    with st.spinner("Running Neural Pipelines... This may take a few minutes."):
+    with st.spinner("Running... This may take a few minutes."):
         # Create a temporary directory (The "Virtual Folder")
         with tempfile.TemporaryDirectory() as temp_dir:
 
