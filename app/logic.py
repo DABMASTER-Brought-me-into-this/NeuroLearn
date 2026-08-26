@@ -230,7 +230,7 @@ def cloze_function(sentence):
     
     # Force pick the most confident word if the model found nothing
     if np.max(ans) == 0:
-        best_word_idx = np.argmax(probs_squeezed[:len(words])
+        best_word_idx = np.argmax(probs_squeezed[:len(words)])
         ans[best_word_idx] = 1.0
 
     sentence_repieced = ""
